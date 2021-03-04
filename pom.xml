@@ -10,4 +10,13 @@
         <maven.compiler.source>11</maven.compiler.source>
         <maven.compiler.target>11</maven.compiler.target>
     </properties>
+    
+    <dependencies>
+        <!-- https://mvnrepository.com/artifact/org.swinglabs.swingx/swingx-all -->
+        <dependency>
+            <groupId>org.swinglabs.swingx</groupId>
+            <artifactId>swingx-all</artifactId>
+            <version>1.6.4</version>
+        </dependency>
+    </dependencies>
 </project>
