@@ -6,6 +6,7 @@
 package ni.edu.uni.programacion.views;
 
 import java.awt.BorderLayout;
+import ni.edu.uni.programacion.controllers.PnlCalculadoraController;
 import ni.edu.uni.programacion.views.panels.PnlCalculadora;
 
 /**
@@ -14,6 +15,7 @@ import ni.edu.uni.programacion.views.panels.PnlCalculadora;
  */
 public class StartFrame extends javax.swing.JFrame {
     private PnlCalculadora pnlCalculadora;
+    private PnlCalculadoraController pnlCalculadoraController;
     /**
      * Creates new form StartFrame
      */
@@ -72,6 +74,7 @@ public class StartFrame extends javax.swing.JFrame {
     private void btnCalcActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCalcActionPerformed
         if(pnlCalculadora == null){
             pnlCalculadora = new PnlCalculadora();
+            pnlCalculadoraController = new PnlCalculadoraController(pnlCalculadora);
         }
         if(pnlContent.getComponentCount() > 0){
             pnlContent.remove(0);

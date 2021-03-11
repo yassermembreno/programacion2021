@@ -5,6 +5,9 @@
  */
 package ni.edu.uni.programacion.views.panels;
 
+import javax.swing.JButton;
+import javax.swing.JTextField;
+
 /**
  *
  * @author Sistemas-05
@@ -18,6 +21,47 @@ public class PnlCalculadora extends javax.swing.JPanel {
         initComponents();
     }
 
+    public JButton getBtnCalc() {
+        return btnCalc;
+    }
+
+    public void setBtnCalc(JButton btnCalc) {
+        this.btnCalc = btnCalc;
+    }
+
+    public JButton getBtnNew() {
+        return btnNew;
+    }
+
+    public void setBtnNew(JButton btnNew) {
+        this.btnNew = btnNew;
+    }
+
+    public JTextField getTxtNumber1() {
+        return txtNumber1;
+    }
+
+    public void setTxtNumber1(JTextField txtNumber1) {
+        this.txtNumber1 = txtNumber1;
+    }
+
+    public JTextField getTxtNumber2() {
+        return txtNumber2;
+    }
+
+    public void setTxtNumber2(JTextField txtNumber2) {
+        this.txtNumber2 = txtNumber2;
+    }
+
+    public JTextField getTxtResult() {
+        return txtResult;
+    }
+
+    public void setTxtResult(JTextField txtResult) {
+        this.txtResult = txtResult;
+    }
+
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -46,11 +90,6 @@ public class PnlCalculadora extends javax.swing.JPanel {
         jPanel1.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.RIGHT));
 
         btnCalc.setText("Calcular");
-        btnCalc.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCalcActionPerformed(evt);
-            }
-        });
         jPanel1.add(btnCalc);
 
         btnNew.setText("Nuevo");
@@ -108,17 +147,6 @@ public class PnlCalculadora extends javax.swing.JPanel {
         add(jPanel2, java.awt.BorderLayout.CENTER);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnCalcActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCalcActionPerformed
-        double n1 = 0, n2 = 0;
-        n1 = Double.parseDouble(txtNumber1.getText());
-        n2 = Double.parseDouble(txtNumber2.getText());
-        
-        txtResult.setText(String.valueOf(suma(n1,n2)));
-    }//GEN-LAST:event_btnCalcActionPerformed
-
-    private double suma(double a, double b){
-        return a + b;
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCalc;
