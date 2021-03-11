@@ -5,17 +5,21 @@
  */
 package ni.edu.uni.programacion.views;
 
+import java.awt.BorderLayout;
+import ni.edu.uni.programacion.views.panels.PnlCalculadora;
+
 /**
  *
  * @author yasser.membreno
  */
 public class StartFrame extends javax.swing.JFrame {
-
+    private PnlCalculadora pnlCalculadora;
     /**
      * Creates new form StartFrame
      */
     public StartFrame() {
-        initComponents();
+        
+        initComponents();        
     }
 
     /**
@@ -27,13 +31,54 @@ public class StartFrame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        pnlLeftButtons = new javax.swing.JPanel();
+        btnCalc = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
+        pnlContent = new javax.swing.JPanel();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("My App");
-        setExtendedState(javax.swing.JFrame.MAXIMIZED_BOTH);
-        getContentPane().setLayout(new java.awt.FlowLayout());
+        getContentPane().setLayout(new java.awt.BorderLayout(3, 2));
 
-        pack();
+        pnlLeftButtons.setBackground(new java.awt.Color(153, 153, 153));
+        pnlLeftButtons.setPreferredSize(new java.awt.Dimension(120, 100));
+        pnlLeftButtons.setLayout(new java.awt.GridLayout(3, 1, 2, 2));
+
+        btnCalc.setText("Calculadora");
+        btnCalc.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCalcActionPerformed(evt);
+            }
+        });
+        pnlLeftButtons.add(btnCalc);
+
+        jButton2.setText("jButton2");
+        pnlLeftButtons.add(jButton2);
+
+        jButton3.setText("jButton3");
+        pnlLeftButtons.add(jButton3);
+
+        getContentPane().add(pnlLeftButtons, java.awt.BorderLayout.LINE_START);
+
+        pnlContent.setBackground(new java.awt.Color(255, 255, 255));
+        pnlContent.setLayout(new java.awt.BorderLayout());
+        getContentPane().add(pnlContent, java.awt.BorderLayout.CENTER);
+
+        setSize(new java.awt.Dimension(416, 339));
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnCalcActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCalcActionPerformed
+        if(pnlCalculadora == null){
+            pnlCalculadora = new PnlCalculadora();
+        }
+        if(pnlContent.getComponentCount() > 0){
+            pnlContent.remove(0);
+        }
+        pnlContent.add(pnlCalculadora, BorderLayout.CENTER);
+        this.validate();
+    }//GEN-LAST:event_btnCalcActionPerformed
 
     /**
      * @param args the command line arguments
@@ -71,5 +116,10 @@ public class StartFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnCalc;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
+    private javax.swing.JPanel pnlContent;
+    private javax.swing.JPanel pnlLeftButtons;
     // End of variables declaration//GEN-END:variables
 }
