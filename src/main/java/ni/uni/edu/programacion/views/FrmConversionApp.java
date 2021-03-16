@@ -6,8 +6,11 @@
 package ni.uni.edu.programacion.views;
 
 import java.awt.BorderLayout;
+import javax.swing.JComponent;
 import ni.uni.edu.programacion.Controllers.CalculatorController;
+import ni.uni.edu.programacion.Controllers.TemperatureController;
 import ni.uni.edu.programacion.views.panels.PnlCalculator;
+import ni.uni.edu.programacion.views.panels.PnlConversionTemplate;
 
 /**
  *
@@ -16,6 +19,10 @@ import ni.uni.edu.programacion.views.panels.PnlCalculator;
 public class FrmConversionApp extends javax.swing.JFrame {
     private PnlCalculator pnlCalculator;
     private CalculatorController calculatorController;
+    
+    private PnlConversionTemplate pnlTemperature;
+    private TemperatureController temperatureController;
+    
     /**
      * Creates new form FrmConversionApp
      */
@@ -55,6 +62,11 @@ public class FrmConversionApp extends javax.swing.JFrame {
         pnlLeftButtons.add(btnCalculator);
 
         btnTemperature.setText("Temperatura");
+        btnTemperature.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnTemperatureActionPerformed(evt);
+            }
+        });
         pnlLeftButtons.add(btnTemperature);
 
         btnCurrency.setText("Moneda");
@@ -76,13 +88,23 @@ public class FrmConversionApp extends javax.swing.JFrame {
            calculatorController = new CalculatorController(pnlCalculator);
        }
        
-       if(pnlContent.getComponentCount() > 0){
-           pnlContent.remove(0);
-       }
-       
-       pnlContent.add(pnlCalculator, BorderLayout.CENTER);
-       validate();
+        addComponent(pnlCalculator);
     }//GEN-LAST:event_btnCalculatorActionPerformed
+
+    private void addComponent(JComponent component) {
+        pnlContent.removeAll();        
+        pnlContent.add(component, BorderLayout.CENTER);
+        validate();
+        repaint();
+    }
+
+    private void btnTemperatureActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTemperatureActionPerformed
+        if(pnlTemperature == null){
+            pnlTemperature = new PnlConversionTemplate();
+            temperatureController = new TemperatureController(pnlTemperature);
+        }
+        addComponent(pnlTemperature);
+    }//GEN-LAST:event_btnTemperatureActionPerformed
 
     /**
      * @param args the command line arguments
