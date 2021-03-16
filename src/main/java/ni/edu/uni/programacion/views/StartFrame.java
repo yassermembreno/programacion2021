@@ -6,22 +6,29 @@
 package ni.edu.uni.programacion.views;
 
 import java.awt.BorderLayout;
+import javax.swing.JComponent;
 import ni.edu.uni.programacion.controllers.PnlCalculadoraController;
+import ni.edu.uni.programacion.controllers.PnlTemperatureController;
 import ni.edu.uni.programacion.views.panels.PnlCalculadora;
+import ni.edu.uni.programacion.views.panels.PnlConversionTemplate;
 
 /**
  *
  * @author yasser.membreno
  */
 public class StartFrame extends javax.swing.JFrame {
+
     private PnlCalculadora pnlCalculadora;
     private PnlCalculadoraController pnlCalculadoraController;
+    private PnlConversionTemplate pnlCTTemperature;
+    private PnlTemperatureController pnlTemperatureController;
+
     /**
      * Creates new form StartFrame
      */
     public StartFrame() {
-        
-        initComponents();        
+
+        initComponents();
     }
 
     /**
@@ -35,7 +42,7 @@ public class StartFrame extends javax.swing.JFrame {
 
         pnlLeftButtons = new javax.swing.JPanel();
         btnCalc = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        btnTemperature = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         pnlContent = new javax.swing.JPanel();
 
@@ -55,8 +62,13 @@ public class StartFrame extends javax.swing.JFrame {
         });
         pnlLeftButtons.add(btnCalc);
 
-        jButton2.setText("jButton2");
-        pnlLeftButtons.add(jButton2);
+        btnTemperature.setText("Temperatura");
+        btnTemperature.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnTemperatureActionPerformed(evt);
+            }
+        });
+        pnlLeftButtons.add(btnTemperature);
 
         jButton3.setText("jButton3");
         pnlLeftButtons.add(jButton3);
@@ -72,16 +84,29 @@ public class StartFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnCalcActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCalcActionPerformed
-        if(pnlCalculadora == null){
+
+        if (pnlCalculadora == null) {
             pnlCalculadora = new PnlCalculadora();
             pnlCalculadoraController = new PnlCalculadoraController(pnlCalculadora);
         }
-        if(pnlContent.getComponentCount() > 0){
-            pnlContent.remove(0);
-        }
-        pnlContent.add(pnlCalculadora, BorderLayout.CENTER);
-        this.validate();
+        addComponent(pnlCalculadora);
     }//GEN-LAST:event_btnCalcActionPerformed
+
+    private void addComponent(JComponent component) {
+        pnlContent.removeAll(); 
+        pnlContent.add(component, BorderLayout.CENTER);
+        pnlContent.repaint();
+        this.validate();
+    }
+
+    private void btnTemperatureActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTemperatureActionPerformed
+        
+        if (pnlCTTemperature == null) {
+            pnlCTTemperature = new PnlConversionTemplate();
+            pnlTemperatureController = new PnlTemperatureController(pnlCTTemperature);
+        }
+        addComponent(pnlCTTemperature);
+    }//GEN-LAST:event_btnTemperatureActionPerformed
 
     /**
      * @param args the command line arguments
@@ -120,7 +145,7 @@ public class StartFrame extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCalc;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton btnTemperature;
     private javax.swing.JButton jButton3;
     private javax.swing.JPanel pnlContent;
     private javax.swing.JPanel pnlLeftButtons;
