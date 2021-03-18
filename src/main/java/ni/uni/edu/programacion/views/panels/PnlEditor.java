@@ -7,6 +7,7 @@ package ni.uni.edu.programacion.views.panels;
 
 import javax.swing.JLabel;
 import javax.swing.JTextArea;
+import javax.swing.JTextPane;
 
 /**
  *
@@ -33,9 +34,12 @@ public class PnlEditor extends javax.swing.JPanel {
         return lblWords;
     }
 
-    public JTextArea getTxtaEditor() {
-        return txtaEditor;
+    public JTextPane getTxtpEditor() {
+        return txtpEditor;
     }
+
+ 
+    
 
     
     /**
@@ -46,14 +50,15 @@ public class PnlEditor extends javax.swing.JPanel {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
+        java.awt.GridBagConstraints gridBagConstraints;
 
         jPanel1 = new javax.swing.JPanel();
         lblLines = new javax.swing.JLabel();
         lblWords = new javax.swing.JLabel();
         lblLetters = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        txtaEditor = new javax.swing.JTextArea();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        txtpEditor = new javax.swing.JTextPane();
 
         setLayout(new java.awt.BorderLayout());
 
@@ -70,13 +75,17 @@ public class PnlEditor extends javax.swing.JPanel {
 
         add(jPanel1, java.awt.BorderLayout.PAGE_END);
 
-        jPanel2.setLayout(new java.awt.BorderLayout());
+        jPanel2.setLayout(new java.awt.GridBagLayout());
 
-        txtaEditor.setColumns(20);
-        txtaEditor.setRows(5);
-        jScrollPane1.setViewportView(txtaEditor);
+        txtpEditor.setMargin(new java.awt.Insets(10, 3, 3, 3));
+        jScrollPane2.setViewportView(txtpEditor);
 
-        jPanel2.add(jScrollPane1, java.awt.BorderLayout.CENTER);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 0.1;
+        gridBagConstraints.weighty = 0.1;
+        gridBagConstraints.insets = new java.awt.Insets(12, 12, 12, 12);
+        jPanel2.add(jScrollPane2, gridBagConstraints);
 
         add(jPanel2, java.awt.BorderLayout.CENTER);
     }// </editor-fold>//GEN-END:initComponents
@@ -85,10 +94,10 @@ public class PnlEditor extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel lblLetters;
     private javax.swing.JLabel lblLines;
     private javax.swing.JLabel lblWords;
-    private javax.swing.JTextArea txtaEditor;
+    private javax.swing.JTextPane txtpEditor;
     // End of variables declaration//GEN-END:variables
 }
