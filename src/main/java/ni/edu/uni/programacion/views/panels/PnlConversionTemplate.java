@@ -23,8 +23,8 @@ public class PnlConversionTemplate extends javax.swing.JPanel {
         initComponents();
     }
 
-    public JButton getBtnCalc() {
-        return btnCalc;
+    public JButton getBtnConv() {
+        return btnConv;
     }
 
     public JButton getBtnNew() {
@@ -59,7 +59,7 @@ public class PnlConversionTemplate extends javax.swing.JPanel {
         java.awt.GridBagConstraints gridBagConstraints;
 
         jPanel1 = new javax.swing.JPanel();
-        btnCalc = new javax.swing.JButton();
+        btnConv = new javax.swing.JButton();
         btnNew = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
@@ -75,8 +75,8 @@ public class PnlConversionTemplate extends javax.swing.JPanel {
         jPanel1.setBackground(new java.awt.Color(204, 204, 204));
         jPanel1.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.RIGHT));
 
-        btnCalc.setText("Convertir");
-        jPanel1.add(btnCalc);
+        btnConv.setText("Convertir");
+        jPanel1.add(btnConv);
 
         btnNew.setText("Nuevo");
         jPanel1.add(btnNew);
@@ -144,7 +144,7 @@ public class PnlConversionTemplate extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnCalc;
+    private javax.swing.JButton btnConv;
     private javax.swing.JButton btnNew;
     private javax.swing.JComboBox<String> cmbFrom;
     private javax.swing.JComboBox<String> cmbTo;

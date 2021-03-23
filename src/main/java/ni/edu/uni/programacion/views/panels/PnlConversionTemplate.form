@@ -32,7 +32,7 @@
         <Property name="alignment" type="int" value="2"/>
       </Layout>
       <SubComponents>
-        <Component class="javax.swing.JButton" name="btnCalc">
+        <Component class="javax.swing.JButton" name="btnConv">
           <Properties>
             <Property name="text" type="java.lang.String" value="Convertir"/>
           </Properties>

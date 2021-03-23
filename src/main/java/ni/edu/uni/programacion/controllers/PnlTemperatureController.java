@@ -31,7 +31,7 @@ public class PnlTemperatureController implements ActionListener {
         pnlConversionTemplate.getCmbFrom().setModel(fromCmbModel);
         pnlConversionTemplate.getCmbTo().setModel(toCmbModel);
         
-        pnlConversionTemplate.getBtnCalc().addActionListener(this);
+        pnlConversionTemplate.getBtnConv().addActionListener(this);
         pnlConversionTemplate.getBtnNew().addActionListener(this);
         
     }
