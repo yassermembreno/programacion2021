@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ni.uni.edu.programacion.Controllers;
+package ni.uni.edu.programacion.controllers;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;

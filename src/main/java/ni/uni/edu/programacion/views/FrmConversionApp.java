@@ -7,8 +7,8 @@ package ni.uni.edu.programacion.views;
 
 import java.awt.BorderLayout;
 import javax.swing.JComponent;
-import ni.uni.edu.programacion.Controllers.CalculatorController;
-import ni.uni.edu.programacion.Controllers.TemperatureController;
+import ni.uni.edu.programacion.controllers.CalculatorController;
+import ni.uni.edu.programacion.controllers.TemperatureController;
 import ni.uni.edu.programacion.views.panels.PnlCalculator;
 import ni.uni.edu.programacion.views.panels.PnlConversionTemplate;
 
