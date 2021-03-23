@@ -70,7 +70,7 @@ public class StartFrame extends javax.swing.JFrame {
         });
         pnlLeftButtons.add(btnTemperature);
 
-        jButton3.setText("Moneda");
+        jButton3.setText("jButton3");
         pnlLeftButtons.add(jButton3);
 
         getContentPane().add(pnlLeftButtons, java.awt.BorderLayout.LINE_START);
