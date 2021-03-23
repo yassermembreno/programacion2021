@@ -19,12 +19,9 @@ import ni.edu.uni.programacion.backend.pojo.Vehicle;
  *
  * @author yasser.membreno
  */
-public class JsonVehicleDaoImpl extends RandomTemplate implements VehicleDao{
-    private File file;
-    private final String FILENAME = "vehicleJson.dat";
+public class JsonVehicleDaoImpl extends RandomTemplate implements VehicleDao{        
     private final int SIZE = 800;    
-    private Gson gson;
-    
+    private Gson gson;    
     
     public JsonVehicleDaoImpl() throws FileNotFoundException {
         super(new File("vehicleJson.head"), new File("vehicleJson.dat"));        
