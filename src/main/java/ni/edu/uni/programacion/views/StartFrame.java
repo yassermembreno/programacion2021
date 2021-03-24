@@ -6,11 +6,16 @@
 package ni.edu.uni.programacion.views;
 
 import java.awt.BorderLayout;
+import java.io.FileNotFoundException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JComponent;
 import ni.edu.uni.programacion.controllers.PnlCalculadoraController;
 import ni.edu.uni.programacion.controllers.PnlTemperatureController;
+import ni.edu.uni.programacion.controllers.PnlVehicleController;
 import ni.edu.uni.programacion.views.panels.PnlCalculadora;
 import ni.edu.uni.programacion.views.panels.PnlConversionTemplate;
+import ni.edu.uni.programacion.views.panels.PnlVehicle;
 
 /**
  *
@@ -22,6 +27,8 @@ public class StartFrame extends javax.swing.JFrame {
     private PnlCalculadoraController pnlCalculadoraController;
     private PnlConversionTemplate pnlCTTemperature;
     private PnlTemperatureController pnlTemperatureController;
+    private PnlVehicle pnlVehicle;
+    private PnlVehicleController pnlVehicleController;
 
     /**
      * Creates new form StartFrame
@@ -70,7 +77,13 @@ public class StartFrame extends javax.swing.JFrame {
         });
         pnlLeftButtons.add(btnTemperature);
 
+        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/new-file.png"))); // NOI18N
         jButton3.setText("jButton3");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
         pnlLeftButtons.add(jButton3);
 
         getContentPane().add(pnlLeftButtons, java.awt.BorderLayout.LINE_START);
@@ -93,20 +106,33 @@ public class StartFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCalcActionPerformed
 
     private void addComponent(JComponent component) {
-        pnlContent.removeAll(); 
+        pnlContent.removeAll();
         pnlContent.add(component, BorderLayout.CENTER);
         pnlContent.repaint();
         this.validate();
     }
 
     private void btnTemperatureActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTemperatureActionPerformed
-        
+
         if (pnlCTTemperature == null) {
             pnlCTTemperature = new PnlConversionTemplate();
             pnlTemperatureController = new PnlTemperatureController(pnlCTTemperature);
         }
         addComponent(pnlCTTemperature);
     }//GEN-LAST:event_btnTemperatureActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        try {
+            if (pnlVehicle == null) {
+                pnlVehicle = new PnlVehicle();
+                pnlVehicleController = new PnlVehicleController(pnlVehicle);
+            }
+            
+            addComponent(pnlVehicle);
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(StartFrame.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
      * @param args the command line arguments
