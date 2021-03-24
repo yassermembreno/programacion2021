@@ -9,8 +9,10 @@ import java.awt.BorderLayout;
 import javax.swing.JComponent;
 import ni.edu.uni.programacion.controllers.CalculatorController;
 import ni.edu.uni.programacion.controllers.PnlTemperatureController;
+import ni.edu.uni.programacion.controllers.PnlVehicleController;
 import ni.edu.uni.programacion.views.panels.PnlCalculator;
 import ni.edu.uni.programacion.views.panels.PnlConversionTemplate;
+import ni.edu.uni.programacion.views.panels.PnlVehicle;
 
 /**
  *
@@ -22,7 +24,8 @@ public class FrmConversionApp extends javax.swing.JFrame {
     private CalculatorController calculatorController;
     private PnlConversionTemplate pnlConversionTemplate;
     private PnlTemperatureController pnlTemperatureController;
-
+    private PnlVehicle pnlVehicle;
+    private PnlVehicleController pnlVehicleController;
     /**
      * Creates new form FrmConversionApp
      */
@@ -70,6 +73,11 @@ public class FrmConversionApp extends javax.swing.JFrame {
         pnlLeftButtons.add(btnTemp);
 
         btnCurr.setText("Moneda");
+        btnCurr.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCurrActionPerformed(evt);
+            }
+        });
         pnlLeftButtons.add(btnCurr);
 
         getContentPane().add(pnlLeftButtons, java.awt.BorderLayout.LINE_START);
@@ -107,6 +115,15 @@ public class FrmConversionApp extends javax.swing.JFrame {
 
         addComponent(pnlConversionTemplate);
     }//GEN-LAST:event_btnTempActionPerformed
+
+    private void btnCurrActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCurrActionPerformed
+        if(pnlVehicle == null){
+            pnlVehicle = new PnlVehicle();
+            pnlVehicleController = new PnlVehicleController(pnlVehicle);
+        }
+        
+        addComponent(pnlVehicle);
+    }//GEN-LAST:event_btnCurrActionPerformed
 
     /**
      * @param args the command line arguments
