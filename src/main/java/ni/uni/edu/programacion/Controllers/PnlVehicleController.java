@@ -143,6 +143,11 @@ public class PnlVehicleController {
         float price;
         Vehicle.Transmission transmission = Vehicle.Transmission.AUTOMATIC;
 
+        if(pnlVehicle.getTxtStock().getText().isEmpty()){
+            JOptionPane.showMessageDialog(null, "Stock number can not be empty", 
+                    "Error message", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
         stock = Integer.parseInt(pnlVehicle.getTxtStock().getText());
         year = Integer.parseInt(pnlVehicle.getCmbYear().getSelectedItem().toString());
         make = pnlVehicle.getCmbMake().getSelectedItem().toString();
