@@ -11,7 +11,9 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JComponent;
 import ni.uni.edu.programacion.Controllers.PnlVehicleController;
+import ni.uni.edu.programacion.Controllers.PnlViewVehicleController;
 import ni.uni.edu.programacion.views.panels.PnlVehicle;
+import ni.uni.edu.programacion.views.panels.PnlViewVehicle;
 
 /**
  *
@@ -22,6 +24,8 @@ public class FrmVehicle extends javax.swing.JFrame {
     private PnlVehicle pnlVehicle;
     private PnlVehicleController pnlVehicleController;
 
+    private PnlViewVehicle pnlViewVehicle;
+    private PnlViewVehicleController pnlViewVehicleController;
     /**
      * Creates new form FrmVehicle
      */
@@ -64,6 +68,11 @@ public class FrmVehicle extends javax.swing.JFrame {
         jPanel1.add(btnNew);
 
         btnView.setText("View");
+        btnView.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnViewActionPerformed(evt);
+            }
+        });
         jPanel1.add(btnView);
 
         jSplitPane1.setLeftComponent(jPanel1);
@@ -99,6 +108,15 @@ public class FrmVehicle extends javax.swing.JFrame {
         }
 
     }//GEN-LAST:event_btnNewActionPerformed
+
+    private void btnViewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewActionPerformed
+        if(pnlViewVehicle == null){
+            pnlViewVehicle = new PnlViewVehicle();
+            pnlViewVehicleController = new PnlViewVehicleController(pnlViewVehicle);
+        }
+        
+        addComponent(pnlViewVehicle);
+    }//GEN-LAST:event_btnViewActionPerformed
 
        private void addComponent(JComponent component) {
         pnlContent.removeAll();        
