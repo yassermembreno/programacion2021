@@ -163,6 +163,7 @@ public class PnlVehicle extends javax.swing.JPanel {
 
         add(jPanel1, java.awt.BorderLayout.PAGE_END);
 
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setLayout(new java.awt.GridBagLayout());
 
         jLabel1.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N

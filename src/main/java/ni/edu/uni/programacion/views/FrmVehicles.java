@@ -21,7 +21,7 @@ public class FrmVehicles extends javax.swing.JFrame {
 
     private PnlVehicle pnlVehicle;
     private PnlVehicleController pnlVehicleController;
-    
+
     private PnlViewVehicles pnlViewVehicles;
     private PnlViewVehicleController pnlViewVehicleController;
 
@@ -94,23 +94,20 @@ public class FrmVehicles extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnNewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNewActionPerformed
-        try {
-            if (pnlVehicle == null) {
-                pnlVehicle = new PnlVehicle();
-                pnlVehicleController = new PnlVehicleController(pnlVehicle);
-            }
-        } catch (FileNotFoundException ex) {
-        }
 
+        if (pnlVehicle == null) {
+            pnlVehicle = new PnlVehicle();
+            pnlVehicleController = new PnlVehicleController(pnlVehicle);
+        }
         addComponent(pnlVehicle);
     }//GEN-LAST:event_btnNewActionPerformed
 
     private void btnViewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewActionPerformed
-        if(pnlViewVehicles == null){
+        if (pnlViewVehicles == null) {
             pnlViewVehicles = new PnlViewVehicles();
             pnlViewVehicleController = new PnlViewVehicleController(pnlViewVehicles);
         }
-        
+
         addComponent(pnlViewVehicles);
     }//GEN-LAST:event_btnViewActionPerformed
 

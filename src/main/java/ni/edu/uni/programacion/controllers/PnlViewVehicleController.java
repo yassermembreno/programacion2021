@@ -19,6 +19,7 @@ import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableRowSorter;
 import ni.edu.uni.programacion.backend.dao.implementation.JsonVehicleDaoImpl;
 import ni.edu.uni.programacion.backend.pojo.Vehicle;
+import ni.edu.uni.programacion.views.models.VehicleTableModel;
 import ni.edu.uni.programacion.views.panels.PnlViewVehicles;
 
 /**
@@ -29,17 +30,21 @@ public class PnlViewVehicleController {
 
     private PnlViewVehicles pnlViewVehicles;
     private JsonVehicleDaoImpl jsonVehicleDaoImpl;
-    private DefaultTableModel tblViewModel;
+    private VehicleTableModel tblViewModel;
     private List<Vehicle> vehicles;
     private String[] HEADERS = new String[]{"StockNumber", "Year", "Make", "Model", "Style",
         "Vin", "Exterior color", "Interior color", "Miles", "Price", "Transmission", "Engine", "Image", "Status"};
-    private TableRowSorter<DefaultTableModel> tblRowSorter;
+    private TableRowSorter<VehicleTableModel> tblRowSorter;
 
     public PnlViewVehicleController(PnlViewVehicles pnlViewVehicles) {
         this.pnlViewVehicles = pnlViewVehicles;
         initComponent();
     }
 
+    public VehicleTableModel getTblViewModel() {
+        return tblViewModel;
+    }
+    
     private void initComponent() {
         try {
             jsonVehicleDaoImpl = new JsonVehicleDaoImpl();
@@ -61,27 +66,28 @@ public class PnlViewVehicleController {
     }
 
     private void txtFinderKeyTyped(KeyEvent e) {
-        RowFilter<DefaultTableModel, Object> rf = null;
+        RowFilter<VehicleTableModel, Object> rf = null;
         rf = RowFilter.regexFilter(pnlViewVehicles.getTxtFinder().getText(), 0, 1, 2, 3, 4, 5, 6, 7, 8);
         tblRowSorter.setRowFilter(rf);
     }
 
     private void loadTable() throws IOException {
-        tblViewModel = new DefaultTableModel(getData(), HEADERS);
+        vehicles = jsonVehicleDaoImpl.getAll().stream().collect(Collectors.toList());
+        tblViewModel = new VehicleTableModel(vehicles, HEADERS);
         tblRowSorter = new TableRowSorter<>(tblViewModel);
 
         pnlViewVehicles.getTblViewVehicle().setModel(tblViewModel);
         pnlViewVehicles.getTblViewVehicle().setRowSorter(tblRowSorter);
     }
 
-    private Object[][] getData() throws IOException {
-        vehicles = jsonVehicleDaoImpl.getAll().stream().collect(Collectors.toList());
-        Object data[][] = new Object[vehicles.size()][vehicles.get(0).asArray().length];
-
-        IntStream.range(0, vehicles.size()).forEach(i -> {
-            data[i] = vehicles.get(i).asArray();
-        });
-
-        return data;
-    }
+//    private Object[][] getData() throws IOException {
+//        vehicles = jsonVehicleDaoImpl.getAll().stream().collect(Collectors.toList());
+//        Object data[][] = new Object[vehicles.size()][vehicles.get(0).asArray().length];
+//
+//        IntStream.range(0, vehicles.size()).forEach(i -> {
+//            data[i] = vehicles.get(i).asArray();
+//        });
+//
+//        return data;
+//    }
 }
